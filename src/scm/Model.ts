@@ -64,6 +64,15 @@ export class Model implements Disposable {
         window.withScmProgress(() => this.syncUpdate());
     }
 
+    public async Status(): Promise<void> {
+        /*const loggedin = await Utils.isLoggedIn(this._compatibilityMode);
+        if (!loggedin) {
+            return;
+        }
+
+        window.withScmProgress(() => this.syncUpdate());*/
+    }
+
     public async Refresh(): Promise<void> {
         this.clean();
         const loggedin = await Utils.isLoggedIn(this._compatibilityMode);

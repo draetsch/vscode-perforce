@@ -108,6 +108,11 @@
     },
     "commands":[
       {
+        "command":"perforce.status",
+        "title":"Show Perforce status",
+        "category":"Perforce"
+      },
+      {
         "command":"perforce.menuFunctions",
         "title":"Show Perforce functions",
         "category":"Perforce"

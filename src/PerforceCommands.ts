@@ -34,6 +34,15 @@ export namespace PerforceCommands
         commands.registerCommand('perforce.showOutput', showOutput);
         commands.registerCommand('perforce.menuFunctions', menuFunctions);
 
+        // DVCS commands
+        commands.registerCommand('perforce.reconcile', () => {
+            console.log("reconcile");
+        });
+
+        commands.registerCommand('perforce.status', () => {
+            PerforceSCMProvider.Status();
+        });
+
         // SCM commands
         commands.registerCommand('perforce.Sync', () => {
             PerforceSCMProvider.Sync();
@@ -422,6 +431,7 @@ export namespace PerforceCommands
 
     export function menuFunctions() {
         var items = [];
+        items.push({ label: "status", description: "STATUS" });
         items.push({ label: "add", description: "Open a new file to add it to the depot" });
         items.push({ label: "edit", description: "Open an existing file for edit" });
         items.push({ label: "revert", description: "Discard changes from an opened file" });
