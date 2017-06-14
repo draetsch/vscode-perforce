@@ -50,7 +50,7 @@ export namespace PerforceService {
 
     function execCommand(command:string, responseCallback: (err: Error, stdout: string, stderr: string) => void, args?: string, directoryOverride?: string, input?: string) {
         var cmdLine = _perforceCmdPath;
-        const maxBuffer = workspace.getConfiguration('perforce').get('maxBuffer', 200*1024);
+        const maxBuffer = workspace.getConfiguration('perforce').get('maxBuffer', 200*1024*100);
 
         if(directoryOverride != null) {
             cmdLine += ' -d ' + directoryOverride;

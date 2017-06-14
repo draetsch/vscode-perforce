@@ -65,12 +65,12 @@ export class Model implements Disposable {
     }
 
     public async Status(): Promise<void> {
-        /*const loggedin = await Utils.isLoggedIn(this._compatibilityMode);
-        if (!loggedin) {
-            return;
-        }
+        //const loggedin = await Utils.isLoggedIn(this._compatibilityMode);
+        //if (!loggedin) {
+        //    return;
+        //}
 
-        window.withScmProgress(() => this.syncUpdate());*/
+        window.withScmProgress(() => this.syncGetStatus());
     }
 
     public async Refresh(): Promise<void> {
@@ -337,6 +337,13 @@ export class Model implements Disposable {
         }).catch(reason => {
             Display.showError(reason.toString());
         })
+    }
+
+    private async syncGetStatus(): Promise<void> {
+        await Utils.getOutput('status').then(output => {
+            Display.channel.append(output);
+            this.Refresh();
+        });
     }
 
     private async updateInfo(): Promise<void> {

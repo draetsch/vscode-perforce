@@ -86,6 +86,7 @@ export class PerforceSCMProvider {
         await perforceProvider._model.Sync();
     };
 
+    // new dvcs function
     public static async Status(): Promise<void> {
         const perforceProvider: PerforceSCMProvider = PerforceSCMProvider.GetInstance();
 
